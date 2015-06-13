@@ -1,0 +1,4 @@
+todoList.controller('manageListCtrl', [function(){
+
+
+}]);
