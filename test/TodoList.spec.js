@@ -8,7 +8,12 @@ describe('manageListCtrl', function(){
   }));
 
   it('initialises with an empty task list', function() {
-    expect(ctrl.searchResult).toBeUndefined();
-    expect(ctrl.searchTerm).toBeUndefined();
+    expect(ctrl.taskList.length).toBe(0);
   });
+  it('can add a task', function(){
+    ctrl.taskDesc = "feed the cat"
+    ctrl.addTask();
+    expect(ctrl.taskList.length).toBe(1)
+  });
+
 });
