@@ -12,7 +12,7 @@ todoList.controller('manageListCtrl', [function(){
     self.taskList.push(task)
   };
 
-  self.removeTask = function(idx) {
+  self.completeTask = function(idx) {
    self.completedTasks ++;
    self.taskList[idx].open = false;
   };

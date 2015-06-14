@@ -20,7 +20,7 @@ describe('manageListCtrl', function(){
     var index = 0
     ctrl.taskDesc = "feed the cat"
     ctrl.addTask();
-    ctrl.removeTask(0)
-    expect(ctrl.taskList.length).toBe(0);
+    ctrl.completeTask(0)
+    expect(ctrl.taskList[0].open).toBe(false);
   });
 });

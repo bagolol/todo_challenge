@@ -29,7 +29,7 @@
           <td>{{task.description}}</td>
           <td>{{task.date | date:"MM/dd/yyyy 'at' h:mma"}}</td>
           <td>
-            <input type="checkbox" ng-click="listCtrl.removeTask($index)">
+            <input type="checkbox" ng-click="listCtrl.completeTask($index)">
           </td>
         </tr>
       </tbody>
