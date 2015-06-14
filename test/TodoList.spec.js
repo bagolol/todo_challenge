@@ -16,11 +16,23 @@ describe('manageListCtrl', function(){
     expect(ctrl.taskList.length).toBe(1)
   });
 
-  it('can remove completed tasks', function(){
+  it('can mark as completed(not open)', function(){
     var index = 0
+    addTask();
+    ctrl.completeTask(index)
+    expect(ctrl.taskList[index].open).toBe(false);
+  });
+
+  it('keeps track of the number of complted tasks', function(){
+    var index = 0
+    addTask();
+    ctrl.completeTask(index)
+    expect(ctrl.completedTasks).toEqual(1);
+  });
+
+  function addTask() {
     ctrl.taskDesc = "feed the cat"
     ctrl.addTask();
-    ctrl.completeTask(0)
-    expect(ctrl.taskList[0].open).toBe(false);
-  });
+  };
+
 });

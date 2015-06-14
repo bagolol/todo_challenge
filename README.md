@@ -7,9 +7,9 @@ core user stories:
     I want to store my tasks
     So that I don't forget them
 
-[x] As a person with limited time
-    I want to instantly be able to update my todo list (adding and changing entries)
-    So that I have more time to think about other things
+As a person with limited time
+I want to instantly be able to update my todo list (adding and changing entries)
+So that I have more time to think about other things
 
 [x] As a person who actually gets stuff done
     I want to mark my tasks as done
@@ -34,11 +34,15 @@ core user stories:
 * Production - AngularJS, Javascript, basic Bootstrap, HTML
 * Testing - Karma, Jasmine, Protractor
 
-## Test coverage
+## Status
 
-Read the `.travis.yml` if any of the steps below don't make sense!
+* test coverage needs improvement
+* currently missing the second user story
+* travis implementation not attempted
 
-* Make sure you have set up `npm test` in your `package.json` so that it runs your Karma tests
-* Make sure you have your Protractor config file at `e2e/conf.js`
+## Next Steps
 
-Good luck!
+* refactor code
+* improve test coverage
+* add express and mongodb
+* add more styling

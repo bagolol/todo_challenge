@@ -5,16 +5,26 @@ describe('TodoList Manager', function(){
     expect(browser.getTitle()).toEqual('Todo List Manager');
   });
 
-//   it('should change state', function() {
-//   var value1 = element(by.binding('checkboxModel.value1'));
-//   var value2 = element(by.binding('checkboxModel.value2'));
+  it('can add a new task', function() {
+    var newTask = element(by.model('todoCtrl.taskDesc'));
+    var button = element(by.className('btn'))
+    button.sendKeys('new task')
 
-//   expect(value1.getText()).toContain('true');
-//   expect(value2.getText()).toContain('YES');
+    expect(element.all(by.repeater('task in todoCtrl.taskList')).count()).toEqual(1);
+  });
 
-//   element(by.model('checkboxModel.value1')).click();
-//   element(by.model('checkboxModel.value2')).click();
+  it('can mark a task as completed', function(){
+    var newTask = element(by.model('todoCtrl.taskDesc'));
+    var button = element(by.className('btn'));
+    var checkbox = element(by.id('completed'));
+    var list = element.all(by.repeater('task in todoCtrl.taskList'))
 
-//   expect(value1.getText()).toContain('false');
-//   expect(value2.getText()).toContain('NO');
+    button.sendKeys('new task')
+
+
+    checkbox.click(0);
+
+
+    // expect(list.get(0).open.toEqual(false));
+  });
 });
