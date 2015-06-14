@@ -2,7 +2,7 @@
 <html ng-app="TodoList">
   <head>
     <meta charset="utf-8">
-    <title>Todo List</title>
+    <title>Todo List Manager</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
@@ -24,16 +24,20 @@
           <th>completed</th>
         </tr>
       </thead>
-      <tbody ng-repeat="task in listCtrl.taskList">
-        <tr>
+      <tbody ng-repeat="task in listCtrl.taskList | orderBy: 'date'">
+        <tr ng-hide="task.completed">
           <td>{{task.description}}</td>
           <td>{{task.date}}</td>
           <td>
-            <input type="checkbox"> completed!
+            <input type="checkbox" ng-click="listCtrl.removeTask($index)"> completed!
           </td>
         </tr>
       </tbody>
     </table>
+  </br>
+  <div align="center">
+    <p>You have <span style="color:blue">{{listCtrl.taskList.length}}</span> task(s) to complete.</p>
+  </div>
   </div>
 </body>
 </html>

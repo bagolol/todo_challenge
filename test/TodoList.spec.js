@@ -16,4 +16,11 @@ describe('manageListCtrl', function(){
     expect(ctrl.taskList.length).toBe(1)
   });
 
+  it('can remove completed tasks', function(){
+    var index = 0
+    ctrl.taskDesc = "feed the cat"
+    ctrl.addTask();
+    ctrl.removeTask(0)
+    expect(ctrl.taskList.length).toBe(0);
+  });
 });
