@@ -13,7 +13,7 @@
 <body ng-controller='manageListCtrl as listCtrl'>
   <div class="container" align="center">
     <form class="form-horizontal">
-      <input type="text" ng-model="listCtrl.taskDesc" >
+      <input type="text" placeholder="new task" ng-model="listCtrl.taskDesc" >
       <button class="btn"ng-click="listCtrl.addTask()">Add task</button>
     </form>
     <table class="table table-hover">
@@ -21,22 +21,31 @@
         <tr>
           <th>task</th>
           <th>date</th>
-          <th>completed</th>
+          <th>complete?</th>
         </tr>
       </thead>
-      <tbody ng-repeat="task in listCtrl.taskList | orderBy: 'date'">
-        <tr ng-hide="task.completed">
+      <tbody ng-repeat="task in listCtrl.taskList | orderBy: '-date'| filter: taskFilter">
+        <tr>
           <td>{{task.description}}</td>
-          <td>{{task.date}}</td>
+          <td>{{task.date | date:"MM/dd/yyyy 'at' h:mma"}}</td>
           <td>
-            <input type="checkbox" ng-click="listCtrl.removeTask($index)"> completed!
+            <input type="checkbox" ng-click="listCtrl.removeTask($index)">
           </td>
         </tr>
       </tbody>
     </table>
   </br>
   <div align="center">
-    <p>You have <span style="color:blue">{{listCtrl.taskList.length}}</span> task(s) to complete.</p>
+  <button class="btn"ng-click="taskFilter = true">show open</button>
+  <button class="btn"ng-click="taskFilter = false">show completed</button>
+  <button class="btn"ng-click="taskFilter = undefined">show all</button></div>
+  <div align="center">
+    <p>You have a total of <span style="color:blue">{{listCtrl.taskList.length}}</span> task(s).
+    </p>
+    <p><span style="color:red">{{listCtrl.taskList.length - listCtrl.completedTasks}}</span> open task(s).
+    </p>
+    <p><span style="color:green">{{listCtrl.completedTasks}}</span> completed task(s).
+    </p>
   </div>
   </div>
 </body>

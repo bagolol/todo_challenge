@@ -2,21 +2,18 @@ todoList.controller('manageListCtrl', [function(){
 
   var self = this;
   self.taskList = [];
+  self.completedTasks = 0;
 
-  this.addTask = function(){
+  self.addTask = function(){
 
     var task = {"description" : self.taskDesc,
-                "completed": false,
-                "date": date()}
+                "open": true,
+                "date": new Date()}
     self.taskList.push(task)
   };
 
-  function date(){
-    var date = new Date().toISOString().slice(0, 10);
-    return date;
-  }
-
-  this.removeTask = function ( idx ) {
-    self.taskList.splice(idx, 1);
+  self.removeTask = function(idx) {
+   self.completedTasks ++;
+   self.taskList[idx].open = false;
   };
 }]);
