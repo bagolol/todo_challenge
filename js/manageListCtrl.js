@@ -5,7 +5,6 @@ todoList.controller('manageListCtrl', [function(){
   self.completedTasks = 0;
 
   self.addTask = function(){
-
     var task = {"description" : self.taskDesc,
                 "open": true,
                 "date": new Date()}
@@ -13,6 +12,7 @@ todoList.controller('manageListCtrl', [function(){
   };
 
   self.completeTask = function(idx) {
+    console.log(idx)
    self.completedTasks ++;
    self.taskList[idx].open = false;
   };
