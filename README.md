@@ -34,14 +34,14 @@ So that I have more time to think about other things
 * Production - AngularJS, Javascript, basic Bootstrap, HTML
 * Testing - Karma, Jasmine, Protractor
 
-## Status
+### Status
 
 * test coverage needs improvement
 * currently missing the second user story
 * travis implementation not attempted
 
-## Next Steps
-
+### Next Steps
+=======
 * refactor code
 * improve test coverage
 * add express and mongodb
