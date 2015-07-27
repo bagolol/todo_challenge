@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/bagolol/till_tech_test.png)](https://travis-ci.org/bagolol/till_tech_test)
-
 # Todo Challenge
 
 core user stories:
